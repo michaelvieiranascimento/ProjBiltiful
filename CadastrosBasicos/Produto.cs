@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BD;
 
 namespace CadastrosBasicos
 {
@@ -178,7 +178,10 @@ namespace CadastrosBasicos
 
     public void GravarProduto(Produto produto)
     {
-        string caminhoFinal = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.GravarProduto(produto);
+
+            string caminhoFinal = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
         Directory.CreateDirectory(caminhoFinal);
 
         string arquivoFinal = Path.Combine(caminhoFinal, "Cosmetico.dat");
@@ -208,7 +211,10 @@ namespace CadastrosBasicos
 
     public void Localizar()
     {
-        string cod, produto;
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.ProcurarProduto(Produto);
+
+            string cod, produto;
 
         Console.Clear();
         Console.WriteLine("\n Localizar Produto");
@@ -466,7 +472,10 @@ namespace CadastrosBasicos
 
     public void Atualizar(string cod, string dataUltimaVenda = null, string situacaoAtualizada = null)
     {
-        string produto;
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.EditarProduto(produto);
+
+            string produto;
         produto = Buscar(cod);
 
         if (produto == null)

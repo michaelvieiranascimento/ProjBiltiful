@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BD;
 
 namespace CadastrosBasicos.ManipulaArquivos
 {
@@ -192,6 +193,9 @@ namespace CadastrosBasicos.ManipulaArquivos
         //Fornecedor nao retorna valores.
         public Fornecedor ProcurarFornecedor(string procuraCnpj)
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.ProcurarFornecedor(string cnpj);
+
             string procuraFornecedor = "", rSocial = "";
             procuraCnpj = procuraCnpj.Replace(".", "").Replace("-", "");
             DateTime dAbertura, uCompra, dCadastro;
@@ -236,6 +240,9 @@ namespace CadastrosBasicos.ManipulaArquivos
 
         public Cliente ProcuraCliente(string cpf)
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.ProcurarCliente(string cpf );
+
             string procuraCliente = "";
             Cliente cliente;
             cpf = cpf.Replace(".", "").Replace("-", "");

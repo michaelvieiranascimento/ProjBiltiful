@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BD;
 
 namespace CadastrosBasicos.ManipulaArquivos
 {
@@ -75,6 +76,9 @@ namespace CadastrosBasicos.ManipulaArquivos
         //editar cliente
         public void EditarCliente(Cliente clienteAtualizado)
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.EditarCliente(clienteAtualizado);
+
 
             Read read = new Read();
             List<Cliente> clientes = read.ListaArquivoCliente();
@@ -110,6 +114,8 @@ namespace CadastrosBasicos.ManipulaArquivos
         }
         public void EditarFornecedor(Fornecedor fornecedorAtualizado)
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.EditarFornecedor(fornecedorAtualizado);
 
             Read read = new Read();
             List<Fornecedor> fornecedores = read.ListaArquivoFornecedor();
@@ -143,6 +149,9 @@ namespace CadastrosBasicos.ManipulaArquivos
         //Gravar novo cliente no arquivo
         public void GravarNovoCliente(Cliente cliente)
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.GravarCliente(cliente);
+
             try
             {
 
@@ -163,6 +172,8 @@ namespace CadastrosBasicos.ManipulaArquivos
         }
         public void GravarNovoFornecedor(Fornecedor fornecedor)
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.GravarFornecedor(fornecedor);
             try
             {
                 string total = fornecedor.RetornaArquivo();

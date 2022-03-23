@@ -1,4 +1,5 @@
-﻿using CadastrosBasicos.ManipulaArquivos;
+﻿using BD;
+using CadastrosBasicos.ManipulaArquivos;
 using System;
 using System.Collections.Generic;
 
@@ -70,6 +71,7 @@ namespace CadastrosBasicos
         }
         public Cliente Editar()
         {
+
             Cliente cliente;
             Console.WriteLine("Somente algumas informacoes podem ser alterada como (Nome/Data de Nascimento/sexo/Situacao), caso nao queira alterar alguma informacao pressione enter!");
             Console.Write("CPF: ");

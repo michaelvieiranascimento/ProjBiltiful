@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BD;
 
 namespace CadastrosBasicos
 {
@@ -140,6 +141,9 @@ namespace CadastrosBasicos
 
         public void GravarMateriaPrima(MPrima mprima)
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.GravarMPrima(mprima);
+
             string caminhoFinal = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
             Directory.CreateDirectory(caminhoFinal);
 
@@ -207,6 +211,9 @@ namespace CadastrosBasicos
 
         public void Localizar()
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.ProcurarMPrima(string Id);
+
             string cod, mPrima;
 
             Console.Clear();
@@ -243,6 +250,7 @@ namespace CadastrosBasicos
 
         public string Buscar(string cod, bool remover = false)
         {
+
             string caminhoFinal = Path.Combine(Directory.GetCurrentDirectory(), "DataBase");
             Directory.CreateDirectory(caminhoFinal);
 
@@ -331,6 +339,9 @@ namespace CadastrosBasicos
 
         public void Atualizar(string cod, string dataUltimaCompra = null, string situacaoAtualizada = null)
         {
+            ConexaoBDCadastroBasico conexao = new ConexaoBDCadastroBasico();
+            conexao.EditarMPrima(MPrima);
+
             string mPrima;
             mPrima = Buscar(cod);
 
